@@ -27,19 +27,12 @@
 
 <script setup lang="ts">
 import { ref } from 'vue';
-// import {
-//     Document,
-//     Menu as IconMenu,
-//     Location,
-//     Setting,
-// } from '@element-plus/icons-vue'
-
 import { useLayoutStore } from '@/stores/layout'
 import { useRouter } from 'vue-router'
+//同步侧边栏收缩
 const store = useLayoutStore()
+//从路由中获取侧边栏内容
 const Router = useRouter()
-const defaultActive = ref('')
-defaultActive.value = Router.currentRoute.value.fullPath
 const aa11: any[] = []
 for (var item1 of Router.options.routes) {
     if (!item1.meta || !item1.meta.sidebar) {
@@ -59,7 +52,10 @@ for (var item1 of Router.options.routes) {
         }
     }
 }
-console.log('aa11', aa11)
+//侧边栏选择的路由
+const defaultActive = ref('')
+defaultActive.value = Router.currentRoute.value.fullPath
+
 const handleOpen = (key: string, keyPath: string[]) => {
     console.log(key, keyPath)
 }
@@ -70,6 +66,6 @@ const handleClose = (key: string, keyPath: string[]) => {
 
 <style scoped>
 .el-sub-menu :deep(span) {
-    min-width: 150px;
+    min-width: 160px;
 }
 </style>

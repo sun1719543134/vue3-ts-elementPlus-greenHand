@@ -26,8 +26,8 @@
 </template>
 
 <script setup lang="ts">
-import layoutHeader from '@/components/layout/header.vue'
-import layoutAside from '@/components/layout/aside.vue'
+import layoutHeader from '@/components/layout/header.vue'//头部组件
+import layoutAside from '@/components/layout/aside.vue'//左边侧边栏组件
 </script>
 
 <style scoped>

@@ -11,18 +11,18 @@
 </template>
 
 <script setup lang="ts">
-import { useDark, useToggle } from '@vueuse/core'
-import { useLayoutStore } from '@/stores/layout'
-
+import { useDark, useToggle } from '@vueuse/core'//暗色模式切换
+import { useLayoutStore } from '@/stores/layout'//pinia 状态管理引入
+//暗色模式切换
 const isDark = useDark()
 const toggleDark = useToggle(isDark)
-
+//切换侧边栏收缩
 const store = useLayoutStore()
-
 function isCollapseTF() {
     store.isCollapseTF()
 }
 </script>
 
 <style>
+
 </style>
