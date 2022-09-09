@@ -1,0 +1,75 @@
+<template>
+    <el-menu style="border-right: 0;" :default-active="defaultActive" :collapse="store.isCollapse" @open="handleOpen"
+        @close="handleClose" unique-opened router>
+        <template v-for="item1 in aa11" :key="item1.name">
+            <el-menu-item v-if="!item1.children||item1.children.length==1"
+                :index="!item1.children?item1.path:item1.children[0].path">
+                <el-icon>
+                    <i-ep-menu></i-ep-menu>
+                </el-icon>
+                <template #title>{{!item1.children?item1.name:item1.children[0].name}}</template>
+            </el-menu-item>
+            <el-sub-menu v-if="item1.children&&item1.children.length>1" :index="item1.path">
+                <template #title>
+
+                    <el-icon>
+                        <i-ep-menu></i-ep-menu>
+                    </el-icon>
+                    <span>{{item1.name}}</span>
+                </template>
+                <el-menu-item v-for="item2 in item1.children" :index="item2.path" :key="item2.name">
+                    {{item2.name}}
+                </el-menu-item>
+            </el-sub-menu>
+        </template>
+    </el-menu>
+</template>
+
+<script setup lang="ts">
+import { ref } from 'vue';
+// import {
+//     Document,
+//     Menu as IconMenu,
+//     Location,
+//     Setting,
+// } from '@element-plus/icons-vue'
+
+import { useLayoutStore } from '@/stores/layout'
+import { useRouter } from 'vue-router'
+const store = useLayoutStore()
+const Router = useRouter()
+const defaultActive = ref('')
+defaultActive.value = Router.currentRoute.value.fullPath
+const aa11: any[] = []
+for (var item1 of Router.options.routes) {
+    if (!item1.meta || !item1.meta.sidebar) {
+        if (item1.children && item1.children.length > 0) {
+            const cc11 = []
+            for (var item2 of item1.children) {
+                if (!item2.meta || !item2.meta.sidebar) {
+                    cc11.push(item2)
+                }
+            }
+            if (cc11.length > 0) {
+                item1.children = cc11
+                aa11.push(item1)
+            }
+        } else if (!item1.children) {
+            aa11.push(item1)
+        }
+    }
+}
+console.log('aa11', aa11)
+const handleOpen = (key: string, keyPath: string[]) => {
+    console.log(key, keyPath)
+}
+const handleClose = (key: string, keyPath: string[]) => {
+    console.log(key, keyPath)
+}
+</script>
+
+<style scoped>
+.el-sub-menu :deep(span) {
+    min-width: 150px;
+}
+</style>
