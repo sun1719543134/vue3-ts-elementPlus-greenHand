@@ -17,6 +17,6 @@ import { ref } from "@vue/reactivity";
 const value1 = ref('')
 </script>
 
-<style>
+<style scoped>
 
 </style>

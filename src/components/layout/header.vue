@@ -23,6 +23,6 @@ function isCollapseTF() {
 }
 </script>
 
-<style>
+<style scoped>
 
 </style>
