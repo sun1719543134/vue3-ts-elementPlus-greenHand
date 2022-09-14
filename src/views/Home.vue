@@ -14,7 +14,9 @@
 
 <script setup lang="ts">
 import { ref } from "@vue/reactivity";
-const value1 = ref('')
+const value1 = ref<string>('')
+let a1: Array<object> = []
+
 </script>
 
 <style scoped>
