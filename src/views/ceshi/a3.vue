@@ -6,6 +6,7 @@
 <script setup lang="ts" name="a3">
 import { ref } from '@vue/reactivity'
 const value1 = ref('')
+
 </script>
 
 <style>
