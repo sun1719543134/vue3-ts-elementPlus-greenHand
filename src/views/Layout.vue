@@ -14,24 +14,24 @@
                     <layout-label></layout-label>
                 </el-header>
                 <el-main>
-                    <router-view></router-view>
+                    <router-view v-slot="{ Component }">
+                        <keep-alive :include="layoutStore.include">
+                            <component :is="Component"></component>
+                        </keep-alive>
+                    </router-view>
+                    {{layoutStore.include}}
                 </el-main>
             </el-container>
         </el-container>
     </el-container>
 </template>
 
-<script setup lang="ts">
-import { watch } from 'vue'
-import { useRoute } from 'vue-router'
+<script setup lang="ts" name="layout">
 import layoutHeader from '@/components/layout/header.vue'//头部组件
 import layoutAside from '@/components/layout/aside.vue'//左边侧边栏组件
 import layoutLabel from '@/components/layout/label.vue'//标签导航栏
-const route = useRoute()
-watch(() => route.path, () => {
-    console.log('监听到变化')
-})
-
+import { useLayoutStore } from '@/stores/layout'
+const layoutStore = useLayoutStore()
 </script>
 
 <style scoped>

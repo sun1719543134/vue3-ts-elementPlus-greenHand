@@ -34,11 +34,11 @@ const store = useLayoutStore()
 const Router = useRouter()
 const aa11: any[] = []
 for (var item1 of Router.options.routes) {
-    if (!item1.meta || !item1.meta.sidebar) {
+    if (item1.meta && item1.meta.sidebar) {
         if (item1.children && item1.children.length > 0) {
             const cc11 = []
             for (var item2 of item1.children) {
-                if (!item2.meta || !item2.meta.sidebar) {
+                if (item2.meta && item2.meta.sidebar) {
                     cc11.push(item2)
                 }
             }

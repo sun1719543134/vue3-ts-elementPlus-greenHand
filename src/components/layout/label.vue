@@ -12,9 +12,10 @@
             <div style="position: absolute;left: 35px;right: 35px;top: 3px;bottom: 0;">
                 <el-scrollbar ref="scrollbarRef">
                     <div style="display: flex;">
-                        <el-tag v-for="tag in 15" :key="tag" closable size="large" type="info"
-                            style="margin-right:5px;">
-                            {{ tag }}
+                        <el-tag v-for="tag,index1 of layoutStore.labelCache" :key="index1" :closable="tag.name!='home'"
+                            size="large" :type="tag.name==routerName?'':'info'" style="margin-right:5px;"
+                            @close="closeLabel(tag,index1)" @click="clickTheTab(tag)">
+                            {{ tag.name }}
                         </el-tag>
                     </div>
                 </el-scrollbar>
@@ -24,9 +25,33 @@
 </template>
 
 <script setup lang="ts">
-import { ref } from "@vue/reactivity"
-const max = ref(0)
+import { watch, ref } from 'vue'
+import { useRoute, useRouter } from 'vue-router'
+import { useLayoutStore } from '@/stores/layout'
+const routerName: any = ref('')
+const layoutStore = useLayoutStore()
+const router = useRouter()
+layoutStore.setLabelCache(router.currentRoute.value)
+routerName.value = router.currentRoute.value.name
+const route = useRoute()
+watch(() => route.fullPath, () => {
+    console.log('监听', route.name)
+    routerName.value = route.name
+    layoutStore.setLabelCache(router.currentRoute.value)
+})
+function closeLabel(value1: any, value2: number) {
 
+    if (routerName.value === value1.name) {
+        layoutStore.labelCache.splice(value2, 1)
+        console.log(layoutStore.labelCache[value2 - 1].name)
+        router.push(layoutStore.labelCache[value2 - 1].name)
+    } else {
+        layoutStore.labelCache.splice(value2, 1)
+    }
+}
+function clickTheTab(value1: any) {
+    router.push(value1.name)
+}
 </script>
 
 <style scoped>

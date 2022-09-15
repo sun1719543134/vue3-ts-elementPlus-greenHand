@@ -2,6 +2,7 @@ import { fileURLToPath, URL } from 'node:url'
 import { defineConfig } from 'vite'
 import vue from '@vitejs/plugin-vue'
 
+import VueSetupExtend from 'vite-plugin-vue-setup-extend'
 import AutoImport from 'unplugin-auto-import/vite'//自动导入
 import Components from 'unplugin-vue-components/vite'//自动导入
 import { ElementPlusResolver } from 'unplugin-vue-components/resolvers'//ElementPlus引入
@@ -23,6 +24,7 @@ export default defineConfig({
         }),
       ],
     }),
+    VueSetupExtend(),
     Components({
       resolvers: [
         // 自动注册图标组件
@@ -36,6 +38,7 @@ export default defineConfig({
     Icons({
       autoInstall: true
     })
+
   ],
   resolve: {
     alias: {
