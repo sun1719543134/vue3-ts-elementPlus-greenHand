@@ -2,7 +2,7 @@
     <el-button type="primary" @click="login()">登录</el-button>
 </template>
 
-<script setup lang="ts">
+<script setup lang="ts" name="login">
 import { useUserStore } from '@/stores/user'
 import { useRouter } from 'vue-router'
 import { useDark } from '@vueuse/core'//暗色模式切换

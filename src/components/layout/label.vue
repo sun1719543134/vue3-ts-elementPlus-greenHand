@@ -35,12 +35,10 @@ layoutStore.setLabelCache(router.currentRoute.value)
 routerName.value = router.currentRoute.value.name
 const route = useRoute()
 watch(() => route.fullPath, () => {
-    console.log('监听', route.name)
     routerName.value = route.name
     layoutStore.setLabelCache(router.currentRoute.value)
 })
 function closeLabel(value1: any, value2: number) {
-
     if (routerName.value === value1.name) {
         layoutStore.labelCache.splice(value2, 1)
         console.log(layoutStore.labelCache[value2 - 1].name)

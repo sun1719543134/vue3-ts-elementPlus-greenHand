@@ -74,9 +74,7 @@ const router = createRouter({
 import pinia from '@/stores/store'
 import { useUserStore } from "@/stores/user"
 router.beforeEach((to, from, next) => {
-  const store = useUserStore(pinia)  // 这里一定要把 pinia传入进去
-  console.log('userToken', store.userToken)
-  console.log('to.name', to.name)
+  const store = useUserStore(pinia)  // 要放在 router.beforeEach 函数里面,否则缓存会失效
   // next()
   if (store.userToken == '' && to.name != 'login') {
     next('/login')

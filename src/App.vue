@@ -1,4 +1,4 @@
-<script setup lang="ts">
+<script setup lang="ts" name="app">
 import zhCn from 'element-plus/lib/locale/lang/zh-cn'//element-plus 设置中文
 </script>
 <template>
@@ -9,6 +9,21 @@ import zhCn from 'element-plus/lib/locale/lang/zh-cn'//element-plus 设置中文
   </el-config-provider>
 </template>
 <style>
+/* 禁止选中文本 */
+.suppress-selected-text {
+  -webkit-touch-callout: none;
+  /*系统默认菜单被禁用*/
+  -webkit-user-select: none;
+  /*webkit浏览器*/
+  -khtml-user-select: none;
+  /*早期浏览器*/
+  -moz-user-select: none;
+  /*火狐*/
+  -ms-user-select: none;
+  /*IE10*/
+  user-select: none;
+}
+
 html,
 body {
   padding: 0;

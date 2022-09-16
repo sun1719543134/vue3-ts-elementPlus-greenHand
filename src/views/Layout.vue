@@ -1,16 +1,16 @@
 <template>
-
     <el-container style="height: 100%;">
-        <el-header style="border-bottom: 1px solid var(--el-border-color);">
+        <el-header style="border-bottom: 1px solid var(--el-border-color);" class="suppress-selected-text">
             <layout-header></layout-header>
         </el-header>
         <el-container>
-            <el-aside width="''" style="border-right: 1px solid var(--el-border-color);">
+            <el-aside width="''" style="border-right: 1px solid var(--el-border-color);" class="suppress-selected-text">
                 <layout-aside>
                 </layout-aside>
             </el-aside>
             <el-container>
-                <el-header height="''" style="border-bottom: 1px solid var(--el-border-color);padding: 0;">
+                <el-header height="''" style="border-bottom: 1px solid var(--el-border-color);padding: 0;"
+                    class="suppress-selected-text">
                     <layout-label></layout-label>
                 </el-header>
                 <el-main>
