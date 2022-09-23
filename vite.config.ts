@@ -12,6 +12,15 @@ import IconsResolver from 'unplugin-icons/resolver'//自动导入 ElementPlus ic
 
 // https://vitejs.dev/config/
 export default defineConfig({
+  server: {
+    proxy: {
+      '/taobaoapi': {
+        target: 'http://api.m.taobao.com', // 实际请求地址
+        changeOrigin: true,
+        rewrite: (path) => path.replace(/^\/taobaoapi/, ""),
+      },
+    },
+  },
   plugins: [
     vue(),
     AutoImport({

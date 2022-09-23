@@ -2,7 +2,7 @@
     <div style="color: var(--yanse1);">
         home
     </div>
-    <el-button>Default</el-button>
+    <el-button @click="test()">Default</el-button>
     <el-button type="primary">Primary</el-button>
     <el-button type="success">Success</el-button>
     <el-button type="info">Info</el-button>
@@ -13,6 +13,17 @@
 </template>
 <script setup lang="ts" name="home">
 import { ref } from "@vue/reactivity";
+import { getTest2 } from '@/utils/api'
+function test() {
+    const params = {
+        api: 'mtop.common.getTimestamp'
+    }
+    getTest2(params).then(response => {
+        console.log("结果", response);
+    }).catch(error => {
+        console.log('获取失败！')
+    });
+}
 const value1 = ref<string>('')
 let a1: Array<object> = []
 </script>

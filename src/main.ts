@@ -1,5 +1,5 @@
 import { createApp } from 'vue'
-import pinia from "./stores/store"//
+import pinia from "./stores/store"//状态管理
 
 import App from './App.vue'
 import router from './router'//引入路由router
