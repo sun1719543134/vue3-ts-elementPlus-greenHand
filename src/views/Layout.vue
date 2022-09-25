@@ -1,17 +1,18 @@
 <template>
     <el-container style="height: 100%;">
-        <el-header style="border-bottom: 1px solid var(--el-border-color);" class="suppress-selected-text">
-            <layout-header></layout-header>
-        </el-header>
+        <el-aside width="''" style="border-right: 1px solid var(--el-border-color);" class="suppress-selected-text">
+            <LayoutAside>
+            </LayoutAside>
+        </el-aside>
         <el-container>
-            <el-aside width="''" style="border-right: 1px solid var(--el-border-color);" class="suppress-selected-text">
-                <layout-aside>
-                </layout-aside>
-            </el-aside>
+            <el-header height="41px" style="border-bottom: 1px solid var(--el-border-color);padding: 0 10px 0 0;"
+                class="suppress-selected-text">
+                <LayoutHeader></LayoutHeader>
+            </el-header>
             <el-container>
                 <el-header height="''" style="border-bottom: 1px solid var(--el-border-color);padding: 0;"
                     class="suppress-selected-text">
-                    <layout-label></layout-label>
+                    <LayoutLabel></LayoutLabel>
                 </el-header>
                 <el-main>
                     <router-view v-slot="{ Component }">
@@ -27,9 +28,9 @@
 </template>
 
 <script setup lang="ts" name="layout">
-import layoutHeader from '@/components/layout/header.vue'//头部组件
-import layoutAside from '@/components/layout/aside.vue'//左边侧边栏组件
-import layoutLabel from '@/components/layout/label.vue'//标签导航栏
+import LayoutHeader from '@/components/layout/header.vue'//头部组件
+import LayoutAside from '@/components/layout/aside.vue'//左边侧边栏组件
+import LayoutLabel from '@/components/layout/label.vue'//标签导航栏
 import { useLayoutStore } from '@/stores/layout'
 const layoutStore = useLayoutStore()
 </script>

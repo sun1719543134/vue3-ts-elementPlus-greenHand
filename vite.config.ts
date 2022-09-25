@@ -6,7 +6,7 @@ import VueSetupExtend from 'vite-plugin-vue-setup-extend'
 import AutoImport from 'unplugin-auto-import/vite'//自动导入
 import Components from 'unplugin-vue-components/vite'//自动导入
 import { ElementPlusResolver } from 'unplugin-vue-components/resolvers'//ElementPlus引入
-
+import ElementPlus from 'unplugin-element-plus/vite'
 import Icons from 'unplugin-icons/vite'//自动导入 ElementPlus icon 图标
 import IconsResolver from 'unplugin-icons/resolver'//自动导入 ElementPlus icon 图标
 
@@ -23,6 +23,9 @@ export default defineConfig({
   },
   plugins: [
     vue(),
+    ElementPlus({
+      // options
+    }),
     AutoImport({
       // 自动导入 Element Plus 相关函数，如：ElMessage, ElMessageBox... (带样式)
       resolvers: [
@@ -34,6 +37,7 @@ export default defineConfig({
       ],
     }),
     VueSetupExtend(),
+
     Components({
       resolvers: [
         // 自动注册图标组件
@@ -41,7 +45,9 @@ export default defineConfig({
           enabledCollections: ['ep'],
         }),
         // 自动导入 Element Plus 组件
-        ElementPlusResolver()
+        ElementPlusResolver(),
+
+
       ]
     }),
     Icons({
