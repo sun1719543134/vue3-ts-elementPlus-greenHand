@@ -8,7 +8,7 @@ interface infoOne {
 }
 //调取axios接口
 function requestCurrency(row1: infoOne) {
-    return new Promise((resolve, reject) => {
+    return new Promise((resolve, _reject) => {
         ElLoading.service({ fullscreen: true })
         request({
             url: row1.url,//此处为自己请求地址
