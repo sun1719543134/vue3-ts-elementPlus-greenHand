@@ -1,5 +1,4 @@
 import axios from 'axios'
-import { ElMessage } from 'element-plus'
 const request = axios.create({
     // baseURL: process.env.BASE_API, // api 的 base_url
     baseURL: '/taobaoapi',
@@ -16,20 +15,20 @@ request.interceptors.request.use((config: any) => {
     return config
 }, error => {
     //处理请求错误
-    console.log("出错啦", error) //
+    // console.log("出错啦", error) //
     Promise.reject(error)
 })
 
 //响应拦截器
 request.interceptors.response.use((response: any) => {
-    return response
-}, error => {
-    console.log('err', error) // for debug
-    if (error.response.status) {
-        ElMessage.error('status:' + error.response.status)
+    // console.log(response)
+    if (response.status == 200) {
+        return Promise.resolve(response)
     } else {
-        ElMessage.error('服务器请求错误，请稍后再试')
+        return Promise.reject(response)
     }
+}, error => {
+    // console.log('err', error) // for debug
     return Promise.reject(error)
 })
 export default request
