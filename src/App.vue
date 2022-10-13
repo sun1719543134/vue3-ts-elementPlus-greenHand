@@ -1,8 +1,18 @@
 <script setup lang="ts" name="app">
+import en from 'element-plus/lib/locale/lang/en'//element-plus 设置英文(默认)
 import zhCn from 'element-plus/lib/locale/lang/zh-cn'//element-plus 设置中文
+
+import { useI18n } from 'vue-i18n'
+const { locale } = useI18n()
+
+// 语言配置整合
+const messages: any = {
+  en: en,
+  'zh-cn': zhCn
+}
 </script>
 <template>
-  <el-config-provider :locale="zhCn">
+  <el-config-provider :locale="messages[locale]">
     <div id="app">
       <router-view></router-view>
     </div>

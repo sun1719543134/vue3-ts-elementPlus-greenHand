@@ -36,6 +36,7 @@ declare module '@vue/runtime-core' {
     IEpArrowRightBold: typeof import('~icons/ep/arrow-right-bold')['default']
     IEpExpand: typeof import('~icons/ep/expand')['default']
     IEpFold: typeof import('~icons/ep/fold')['default']
+    IEpHelpFilled: typeof import('~icons/ep/help-filled')['default']
     IEpMenu: typeof import('~icons/ep/menu')['default']
     IEpMoon: typeof import('~icons/ep/moon')['default']
     IEpSunny: typeof import('~icons/ep/sunny')['default']
