@@ -1,5 +1,5 @@
 <template>
-    <el-menu style="border-right: 0;" :default-active="defaultActive" :collapse="store.isCollapse" @open="handleOpen"
+    <el-menu class="sidebar-border" :default-active="defaultActive" :collapse="store.isCollapse" @open="handleOpen"
         @close="handleClose" unique-opened router>
         <template v-for="item1 in aa11" :key="item1.name">
             <el-menu-item v-if="!item1.children||item1.children.length==1"
@@ -68,8 +68,13 @@ const handleClose = (key: string, keyPath: string[]) => {
 }
 </script>
 
-<style scoped>
+<style scoped lang="less">
 .el-sub-menu :deep(span) {
     min-width: 160px;
+}
+
+// 侧边栏边框
+.sidebar-border {
+    border-right: 0;
 }
 </style>
