@@ -62,8 +62,7 @@ const exitLogin = () => {
     confirmButtonText: 'OK',
     cancelButtonText: 'Cancel',
     type: 'warning',
-  }
-  ).then(() => {
+  }).then(() => {
     usertStore.setUserToken('')
     router.push({ path: '/login' })
     ElMessage({

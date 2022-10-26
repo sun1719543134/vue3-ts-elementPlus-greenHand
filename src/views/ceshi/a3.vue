@@ -1,6 +1,6 @@
 <template>
-    a3
-    <el-input v-model="value1" />
+  a3
+  <el-input v-model="value1" />
 </template>
 
 <script setup lang="ts" name="a3">

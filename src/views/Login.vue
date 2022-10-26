@@ -1,5 +1,5 @@
 <template>
-    <el-button type="primary" @click="login()">登录</el-button>
+  <el-button type="primary" @click="login()">登录</el-button>
 </template>
 
 <script setup lang="ts" name="login">
@@ -10,8 +10,8 @@ useDark()
 const router = useRouter();
 const store = useUserStore()
 function login() {
-    store.setUserToken('登录token')
-    router.push({ path: '/home' })
+  store.setUserToken('登录token')
+  router.push({ path: '/home' })
 }
 
 </script>
