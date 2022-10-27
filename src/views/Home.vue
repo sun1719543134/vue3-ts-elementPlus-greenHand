@@ -9,8 +9,8 @@
   <el-button type="warning">Warning</el-button>
   <el-button type="danger">Danger</el-button>
   <el-date-picker v-model="value1" type="date" value-format="YYYY-MM-DD" />
-  <div>{{$t('common.more')}}</div>
-  {{value1}}
+  <div>{{ $t('common.more') }}</div>
+  {{ value1 }}
 </template>
 <script setup lang="ts" name="home">
 import { ref } from "@vue/reactivity";

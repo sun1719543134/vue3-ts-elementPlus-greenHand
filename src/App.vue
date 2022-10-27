@@ -41,6 +41,9 @@ body {
 }
 
 #app {
-  height: 100vh;
+  height: 100%;
+  width: 100%;
+  min-height: 600px;
+  min-width: 1200px;
 }
 </style>
