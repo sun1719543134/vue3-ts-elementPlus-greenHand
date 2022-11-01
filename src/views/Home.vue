@@ -17,8 +17,6 @@ import { ref } from "@vue/reactivity";
 import { getTest2, getTest1 } from '@/utils/api'
 import { AES_Encrypt, AES_Decrypt, Random_Character } from '@/encryption/aesRsa'
 
-
-
 function test1() {
   const params = {
     api: 'mtop.common.getTimestamp'
@@ -31,7 +29,6 @@ function test1() {
 }
 function test2() {
   const params = {
-
     params: {
       api: 'mtop.common.getTimestamp'
     }
