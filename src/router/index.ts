@@ -33,7 +33,8 @@ const router = createRouter({
       component: () => import('../views/Home.vue'),
       meta: {
         sidebar: true,
-        labelCache: true
+        labelCache: true,
+        title: '首页'
       },
     }]
   }, {
@@ -42,7 +43,9 @@ const router = createRouter({
     component: () => import('../views/Layout.vue'),
     meta: {
       sidebar: true,
-      labelCache: true
+      labelCache: true,
+      title: '测试一'
+
     },
     children: [{
       path: '/a1',
@@ -50,7 +53,8 @@ const router = createRouter({
       component: () => import('../views/ceshi/a1.vue'),
       meta: {
         sidebar: true,
-        labelCache: true
+        labelCache: true,
+        title: '测试a1'
       },
     }, {
       path: '/a2',
@@ -58,7 +62,8 @@ const router = createRouter({
       component: () => import('../views/ceshi/a2.vue'),
       meta: {
         sidebar: true,
-        labelCache: true
+        labelCache: true,
+        title: '测试a2'
       },
     }, {
       path: '/a3',
@@ -66,7 +71,82 @@ const router = createRouter({
       component: () => import('../views/ceshi/a3.vue'),
       meta: {
         sidebar: true,
-        labelCache: true
+        labelCache: true,
+        title: '测试a3'
+      },
+    }]
+  }, {
+    path: '/ceshi2',
+    name: 'ceshi2',
+    component: () => import('../views/Layout.vue'),
+    meta: {
+      sidebar: true,
+      labelCache: true,
+      title: '测试二'
+    },
+    children: [{
+      path: '/b1',
+      name: 'b1',
+      component: () => import('../views/ceshi2/b1.vue'),
+      meta: {
+        sidebar: true,
+        labelCache: true,
+        title: '测试二b1'
+      },
+    }, {
+      path: '/b2',
+      name: 'b2',
+      component: () => import('../views/ceshi2/b2.vue'),
+      meta: {
+        sidebar: true,
+        labelCache: true,
+        title: '测试二b2'
+      },
+    }, {
+      path: '/b3',
+      name: 'b3',
+      component: () => import('../views/ceshi2/b3.vue'),
+      meta: {
+        sidebar: true,
+        labelCache: true,
+        title: '测试二b3'
+      },
+    }]
+  }, {
+    path: '/ceshi3',
+    name: 'ceshi3',
+    component: () => import('../views/Layout.vue'),
+    meta: {
+      sidebar: true,
+      labelCache: true,
+      title: '测试三'
+    },
+    children: [{
+      path: '/c1',
+      name: 'c1',
+      component: () => import('../views/ceshi3/c1.vue'),
+      meta: {
+        sidebar: true,
+        labelCache: true,
+        title: '测试三c1'
+      },
+    }, {
+      path: '/c2',
+      name: 'c2',
+      component: () => import('../views/ceshi3/c2.vue'),
+      meta: {
+        sidebar: true,
+        labelCache: true,
+        title: '测试三c2'
+      },
+    }, {
+      path: '/c3',
+      name: 'c3',
+      component: () => import('../views/ceshi3/c3.vue'),
+      meta: {
+        sidebar: true,
+        labelCache: true,
+        title: '测试三c3'
       },
     }]
   }]

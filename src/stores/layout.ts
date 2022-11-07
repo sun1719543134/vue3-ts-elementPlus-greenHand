@@ -48,7 +48,11 @@ export const useLayoutStore = defineStore({
             return
           }
         }
-        this.labelCache.push(a)
+        if (a.name == 'home') {
+          this.labelCache.unshift(a)
+        } else {
+          this.labelCache.push(a)
+        }
       }
     },
   },

@@ -7,17 +7,17 @@
         <el-icon>
           <i-ep-menu></i-ep-menu>
         </el-icon>
-        <template #title>{{!item1.children?item1.name:item1.children[0].name}}</template>
+        <template #title>{{!item1.children?item1.meta.title:item1.children[0].meta.title}}</template>
       </el-menu-item>
       <el-sub-menu v-if="item1.children&&item1.children.length>1" :index="item1.name">
         <template #title>
           <el-icon>
             <i-ep-menu></i-ep-menu>
           </el-icon>
-          <span>{{item1.name}}</span>
+          <span>{{item1.meta.title}}</span>
         </template>
         <el-menu-item v-for="item2 in item1.children" :index="item2.name" :key="item2.name">
-          {{item2.name}}
+          {{item2.meta.title}}
         </el-menu-item>
       </el-sub-menu>
     </template>

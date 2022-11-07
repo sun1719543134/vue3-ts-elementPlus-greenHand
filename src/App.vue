@@ -18,7 +18,7 @@ const messages: any = {
     </div>
   </el-config-provider>
 </template>
-<style>
+<style lang="less">
 /* 禁止选中文本 */
 .suppress-selected-text {
   -webkit-touch-callout: none;
@@ -38,12 +38,14 @@ html,
 body {
   padding: 0;
   margin: 0;
+  height: 100%;
+  width: 100%;
 }
 
 #app {
   height: 100%;
   width: 100%;
   min-height: 600px;
-  min-width: 1200px;
+  min-width: 800px;
 }
 </style>
