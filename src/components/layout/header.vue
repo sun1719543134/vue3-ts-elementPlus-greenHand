@@ -15,7 +15,7 @@
     </div>
     <div class="language-switching">
       <div @click="setUseLanguage()">
-        {{locale=='en'?'En':'中'}}
+        {{ locale == 'en' ? 'En' : '中' }}
       </div>
     </div>
     <div @click="exitLogin()" class="log-out">

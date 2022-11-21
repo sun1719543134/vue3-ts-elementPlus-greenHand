@@ -24,7 +24,6 @@
       <el-tab-pane v-for="tag, index1 of layoutStore.labelCache" :label="tag.meta.title" :name="tag.name" :key="index1"
         :closable="tag.name != 'home'"></el-tab-pane>
     </el-tabs>
-
   </div>
 </template>
 
@@ -38,10 +37,12 @@ const router = useRouter()
 layoutStore.setLabelCache(router.currentRoute.value)
 routerName.value = router.currentRoute.value.name
 const route = useRoute()
+//监听当前路由变化
 watch(() => route.fullPath, () => {
   routerName.value = route.name
   layoutStore.setLabelCache(router.currentRoute.value)
 })
+//点击删除标签导航栏按键函数
 function closeLabel(value1: string, value2: 'remove' | 'add') {
   if (value2 == 'remove') {
     var index = layoutStore.labelCache.map((item: any) => item.name).indexOf(value1)
@@ -57,6 +58,7 @@ function closeLabel(value1: string, value2: 'remove' | 'add') {
     }
   }
 }
+//点击标签导航栏跳转
 function clickTheTab(activeName: string) {
   router.push(activeName)
 }
