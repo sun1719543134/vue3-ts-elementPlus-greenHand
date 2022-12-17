@@ -20,7 +20,7 @@
               <component :is="Component"></component>
             </keep-alive>
           </router-view>
-          {{layoutStore.include}}
+          {{ layoutStore.include }}
         </el-main>
       </el-container>
     </el-container>
