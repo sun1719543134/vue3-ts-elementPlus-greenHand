@@ -18,21 +18,31 @@
         {{ locale == 'en' ? 'En' : '中' }}
       </div>
     </div>
-    <div @click="exitLogin()" class="log-out">
-      <div>
-        退出登录
-      </div>
+    <div class="personal-operation">
+      <el-dropdown @command="handleCommand">
+        <span>
+          <el-avatar :size="30" src="../../assets/photo.png">
+            <img src="../../assets/4b8ba25a6dae066f4bf41608c6bb7ff.png" />
+          </el-avatar>
+        </span>
+        <template #dropdown>
+          <el-dropdown-menu>
+            <el-dropdown-item command="d" disabled>Action 4</el-dropdown-item>
+            <el-dropdown-item command="exitLogin" divided>退出登录</el-dropdown-item>
+          </el-dropdown-menu>
+        </template>
+      </el-dropdown>
     </div>
   </div>
 </template>
 
 <script setup lang="ts">
-import { useDark, useToggle } from '@vueuse/core'//暗色模式切换
-import { useLayoutStore } from '@/stores/layout'//pinia 状态管理引入
-import { useUserStore } from '@/stores/user'//pinia 状态管理引入
-import { useRouter } from 'vue-router'
-import { ElMessage, ElMessageBox } from 'element-plus'
-import { useI18n } from 'vue-i18n'
+import { useDark, useToggle } from '@vueuse/core'//暗色模式
+import { useLayoutStore } from '@/stores/layout'//pinia 状态管理
+import { useUserStore } from '@/stores/user'//pinia 状态管理
+import { useRouter } from 'vue-router'//reuter 路由
+import { ElMessage, ElMessageBox } from 'element-plus'//element 组件
+import { useI18n } from 'vue-i18n'//useI18n 多语言
 //暗色模式切换
 const isDark = useDark()
 const toggleDark = useToggle(isDark)
@@ -50,6 +60,15 @@ function isCollapseTF() {
 const { locale } = useI18n()
 function setUseLanguage() {
   locale.value = locale.value == 'zh-cn' ? 'en' : 'zh-cn'
+}
+/**
+ * 个人操作
+ */
+const handleCommand = (command: string) => {
+  //退出登录
+  if (command == 'exitLogin') {
+    exitLogin()
+  }
 }
 //退出登录
 const usertStore = useUserStore()
@@ -105,10 +124,10 @@ const exitLogin = () => {
     }
   }
 
-  // 退出登录
-  .log-out {
-    padding-left: 10px;
-    line-height: 40px;
+  // 个人操作
+  .personal-operation {
+    padding: 5px 5px 5px 10px;
+
   }
 }
 </style>
