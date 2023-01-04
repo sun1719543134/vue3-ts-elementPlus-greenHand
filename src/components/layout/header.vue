@@ -51,16 +51,14 @@ const layoutStore = useLayoutStore()
 /**
  * 切换侧边栏收缩
  */
-function isCollapseTF() {
-  layoutStore.isCollapseTF()
-}
+const isCollapseTF = () => layoutStore.isCollapseTF()
+
+const { locale } = useI18n()
 /**
  * 多语言切换
  */
-const { locale } = useI18n()
-function setUseLanguage() {
-  locale.value = locale.value == 'zh-cn' ? 'en' : 'zh-cn'
-}
+const setUseLanguage = () => locale.value = locale.value == 'zh-cn' ? 'en' : 'zh-cn'
+
 /**
  * 个人操作
  */

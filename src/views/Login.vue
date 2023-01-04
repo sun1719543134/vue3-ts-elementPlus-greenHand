@@ -57,7 +57,6 @@ const rules = reactive({
 })
 /**
  * 验证账号密码格式是否正确
- * @param formEl 
  */
 const submitForm = (formEl: FormInstance | undefined) => {
   if (!formEl) return
@@ -79,6 +78,7 @@ const resetForm = (formEl: FormInstance | undefined) => {
 </script>
 
 <style scoped lang="less">
+// 登录背景图片样式
 .login-background-image {
   background-image: url('../assets/leimu-102270816.png');
   background-repeat: no-repeat;
