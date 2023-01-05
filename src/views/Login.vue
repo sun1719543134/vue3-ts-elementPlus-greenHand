@@ -1,27 +1,20 @@
 <template>
-  <div style="display: flex;height: 100%;" class="login-background-image">
-    <div style="flex: 8;"></div>
-    <div style="display: flex;flex-direction: column;">
-      <div style="flex: 4;"></div>
-      <div class="login-style">
-        <el-form ref="ruleFormRef" label-position="top" :model="ruleForm" status-icon :rules="rules" label-width="auto"
-          class="demo-ruleForm">
-          <el-form-item :label="$t('main.loginAccount')" prop="loginName">
-            <el-input v-model.trim="ruleForm.loginName" type="loginName" />
-          </el-form-item>
-          <el-form-item :label="$t('main.loginPassword')" prop="password">
-            <el-input v-model.trim="ruleForm.password" type="password" autocomplete="off" />
-          </el-form-item>
-        </el-form>
-        <div>
-          <el-button class="confirm-style" type="primary" @click="submitForm(ruleFormRef)">
-            {{ $t('main.SignInNow') }}
-          </el-button>
-        </div>
+  <div class="login-style">
+    <div>
+      <el-form ref="ruleFormRef" label-position="top" :model="ruleForm" status-icon :rules="rules" label-width="auto">
+        <el-form-item :label="$t('main.loginAccount')" prop="loginName">
+          <el-input v-model.trim="ruleForm.loginName" type="loginName" />
+        </el-form-item>
+        <el-form-item :label="$t('main.loginPassword')" prop="password">
+          <el-input v-model.trim="ruleForm.password" type="password" autocomplete="off" />
+        </el-form-item>
+      </el-form>
+      <div>
+        <el-button class="confirm-style" type="primary" @click="submitForm(ruleFormRef)">
+          {{ $t('main.SignInNow') }}
+        </el-button>
       </div>
-      <div style="flex: 6;"></div>
     </div>
-    <div style="flex: 2;"></div>
   </div>
 
 </template>
@@ -41,7 +34,7 @@ const store = useUserStore()
 /**
  * 调取登录接口登录
  */
-function login() {
+const login = () => {
   store.setUserToken('登录token')
   router.push({ path: '/home' })
 }
@@ -78,28 +71,30 @@ const resetForm = (formEl: FormInstance | undefined) => {
 </script>
 
 <style scoped lang="less">
-// 登录背景图片样式
-.login-background-image {
+.login-style {
+  // 登录页面样式
   background-image: url('../assets/leimu-102270816.png');
   background-repeat: no-repeat;
   background-size: cover;
-}
+  height: 100%;
+  display: flex;
+  flex-direction: row-reverse;
+  align-items: center;
 
-// 登录框样式
-.login-style {
-  width: 300px;
-  border: 1px solid var(--el-border-color);
-  border-radius: 5px;
-  padding: 20px;
-  background: rgba(255, 255, 255, 0.2);
-  // position: absolute;
-  // right: 200px;
-  // top: 30%;
-}
+  >div {
+    // 登录悬浮框样式
+    width: 300px;
+    border: 1px solid var(--el-border-color);
+    border-radius: 5px;
+    padding: 20px;
+    background: rgba(255, 255, 255, 0.9);
+    margin-right: 10%;
 
-// 登录确认按键样式
-.confirm-style {
-  width: 100%;
-  margin-top: 20px;
+    .confirm-style {
+      // 登录确认按键样式
+      width: 100%;
+      margin-top: 20px;
+    }
+  }
 }
 </style>

@@ -45,7 +45,7 @@ watch(() => route.fullPath, () => {
 /**
  * 点击删除标签导航栏按键函数
  */
-function closeLabel(value1: string, value2: 'remove' | 'add') {
+const closeLabel = (value1: string, value2: 'remove' | 'add') => {
   if (value2 == 'remove') {
     var index = layoutStore.labelCache.map((item: any) => item.name).indexOf(value1)
     if (routerName.value === value1) {
@@ -63,13 +63,8 @@ function closeLabel(value1: string, value2: 'remove' | 'add') {
 /**
  * 点击标签导航栏跳转
  */
-function clickTheTab(activeName: string) {
-  router.push(activeName)
-}
-
-
+const clickTheTab = (activeName: string) => router.push(activeName)
 </script>
-
 <style scoped>
 :deep(.el-scrollbar__bar) {
   display: none;

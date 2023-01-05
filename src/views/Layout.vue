@@ -36,7 +36,5 @@ const layoutStore = useLayoutStore()
 </script>
 
 <style scoped>
-.common-layout {
-  height: 100vh;
-}
+
 </style>
